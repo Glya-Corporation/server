@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es-es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./glya/imagenes/logo/favicon.png" />
+    <title>Login Glya</title>
+    <meta name="author" content="Luis Uzcategui | Glya" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style/style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+      $(function () {
+        //Cuando está listo el documento
+
+        setTimeout(function () {
+          $('.loader').fadeOut('slow'); //ocultar el loader
+        }, 1000); //Después de 5s ocultar el preload
+      });
+    </script>
+    <style type="./glya/text/css">
+      #registrar,
+      #recuperar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader"></div>
+
+    <div class="container">
+      <div class="login-box" id="iniciarsession">
+        <img class="avatar" src="imagenes/logo/Logo GLYA2.png" alt="Glya" width="100px" height="100px" />
+
+        <h1>Iniciar Sessión</h1>
+
+        <form>
+          <!-- username -->
+          <label for="username">Nombre de usuario:</label>
+          <input type="text" placeholder="Enter Username" name="nombre" id="txt_1" required />
+          <!-- password -->
+          <label for="pasword">Contraseña:</label>
+          <input type="password" placeholder=" Enter Password" name="contraseña" id="txt_2" required />
+
+          <input type="submit" value="Acceder" id="btn_1" disabled />
+          <a href="javascript:void(0);" onclick="recuperarDiv();">¿Has perdido la contraseña?</a>
+          <br />
+          <a href="javascript:void(0);" onclick="registrarDiv();">¿No tienes una cuenta?</a>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
