@@ -41,12 +41,20 @@
           <label for="pasword">Contraseña:</label>
           <input type="password" placeholder=" Enter Password" name="contraseña" id="txt_2" required />
 
-          <input type="submit" value="Acceder" id="btn_1" disabled />
+          <input type="button" value="Acceder" id="btn_1" onclick="login()" />
           <a href="javascript:void(0);" onclick="recuperarDiv();">¿Has perdido la contraseña?</a>
           <br />
           <a href="javascript:void(0);" onclick="registrarDiv();">¿No tienes una cuenta?</a>
         </form>
       </div>
     </div>
+    <script>
+      const userName = document.querySelector('#txt_1');
+      const userPassword = document.querySelector('#txt_2');
+
+      const login = () => {
+        console.log(userName.target);
+      };
+    </script>
   </body>
 </html>

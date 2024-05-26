@@ -3,15 +3,16 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const db = require('./utils/database');
-const hendleError = require('./middlewares/error.middleware');
+const handleError = require('./middlewares/error.middleware'); // Corrige el nombre del middleware
 
 const app = express();
 
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'glya')));
 
+// Servir archivos estáticos desde la carpeta 'glya'
+app.use(express.static(path.join(__dirname, 'glya')));
 
 db.authenticate()
   .then(() => console.log('Authenticate complete'))
@@ -26,14 +27,7 @@ app.get('/', (req, res) => {
   res.sendFile(filePath);
 });
 
-app.use(
-  express.static('glya', {
-    setHeaders: (res, path, stat) => {
-      res.set('Content-Type', 'text/css'); // Cambia el tipo MIME según corresponda
-    }
-  })
-);
-
-app.use(hendleError);
+// Middleware para manejar errores
+app.use(handleError);
 
 module.exports = app;
